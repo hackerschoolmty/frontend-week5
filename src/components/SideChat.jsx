@@ -10,8 +10,8 @@ class SideChat extends React.Component {
           </div>
           <div className="collection">
             {
-              this.props.userList.map((user) => {
-                return <a className="collection-item">{user}</a>
+              this.props.userList.map((user, index) => {
+                return <a key={index} className="collection-item" onClick={this.props.switchUser.bind(this, user)} >{user}</a>
               })
             }
           </div>

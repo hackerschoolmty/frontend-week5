@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatInput from './ChatInput';
 
 class ChatTable extends React.Component {
 	render() {
@@ -10,38 +11,22 @@ class ChatTable extends React.Component {
           </div>
           <div className="card">
             {
-              this.props.currentChat.get('messageList').map((msg) => {
-                if (msg.userName === 'You') {
-                  return (
-                    <div className="card-content right-align">
-                      <div className="chip">
-                        <b>{msg.userName}: </b>
-                        <text>{msg.message}</text>
-                      </div>
-                    </div>
-                  )
-                }
-                return (
-                  <div className="card-content left-align">
-                    <div className="chip">
-                      <b>{msg.userName}: </b>
-                      <text>{msg.message}</text>
-                    </div>
-                  </div>
-                )
+              this.props.messageList.map((msg, index) => {
+								const classes = `card-content ${msg.userName === 'You' ? 'right-align' : 'left-align'}`;
+								return (
+									<div key={index} className={classes}>
+										<div className="chip">
+											<b>{msg.userName}: </b>
+											<text>{msg.message}</text>
+										</div>
+									</div>
+								)
               })
             }
             <div className="card-action">
-              <div className="row">
-                <form className="col s12">
-                  <div className="input-field col s10">
-                    <input type="text" />
-                  </div>
-                  <div className="input-field col s2">
-                    <a className="waves-effect waves-light btn">Enviar</a>
-                  </div>
-                </form>
-              </div>
+              <ChatInput
+								onSubmit={this.props.sendChat}
+							/>
             </div>
           </div>
         </div>
@@ -52,7 +37,8 @@ class ChatTable extends React.Component {
 
 ChatTable.propTypes = {
   userName: React.PropTypes.string.isRequired,
-  messageList: React.PropTypes.array.isRequired
+  messageList: React.PropTypes.array.isRequired,
+	sendChat: React.PropTypes.func.isRequired
 }
 
 export default ChatTable;

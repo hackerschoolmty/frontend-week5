@@ -17,7 +17,7 @@ function userExists(username) {
 }
 
 function getUser(userId) {
-
+  users.once('value', (snapshot) => (snapshot.hasChild(username)));
 }
 
 function updateUser() {

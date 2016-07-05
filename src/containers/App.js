@@ -5,6 +5,7 @@ function mapStateToProps(state) {
   return {
     userList: state.get('userList'),
     currentChat: state.get('currentChat'),
+    chats: state.get('chats'),
     appTitle: state.get('appTitle')
   };
 }

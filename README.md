@@ -39,35 +39,35 @@ _componentName_.propTypes = {
 ```
 
 ## Immutable
-### fromJS
+> ### fromJS
 > Objeto javascript nativo transformarlo a Immutable
-### get(string)
+> ### get(string)
 > Obtener la propiedad que se le pasa como string
-### getIn([string])
+> ### getIn([string])
 > Obtener la propiedad que se le pasa en el arreglo de string en orden
-### set(string, val)
+> ### set(string, val)
 > Insertar la propiedad que se le pasa como string
-### setIn([string], val)
+> ### setIn([string], val)
 > Insertar la propiedad que se le pasa en el arreglo de string en orden
-### update(string, val)
+> ### update(string, val)
 > Actualizar la propiedad que se le pasa como string
-### updateIn([string], val)
+> ### updateIn([string], val)
 > Actualizar la propiedad que se le pasa en el arreglo de string en orden
-### remove(string)
+> ### remove(string)
 > Eliminar la propiedad que se le pasa como string
-### removeIn([string])
+> ### removeIn([string])
 > Eliminar la propiedad que se le pasa en el arreglo de string en orden
 
 ## Redux
-### connect(mapStateToProps, actionCreator) (Component)
+> ### connect(mapStateToProps, actionCreator) (Component)
 > Conectar el componente al store (appState) de redux,
 > mapStateToProps es la funcion que describe que datos del store se le pasaran al componente
 > actionCreator un objeto con varios metodos/acciones que deben regresar un Action de Redux ({type: string, payload})
 
-### createStore(reducers, initialState)
+> ### createStore(reducers, initialState)
 > Crear el store/state de la aplicacion que se le pasara al Provider
 > reducers, es un objeto con todos los reducers para el appState
 > initialState, objeto que define el estado inicial de la aplicacion
 
-### reducers
+> ### reducers
 > Son funciones con un switch del tipo de action de redux, su funcion es alterar el state de la aplicacion utilizando metodos de immutable de preferencia
