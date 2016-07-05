@@ -4,17 +4,10 @@ import ChatTable from './ChatTable';
 import { generateResponse, generateNewUser } from '../utils/chatHelper';
 import SideChat from './SideChat';
 
-const initialState = {
-	userList: [],
-	currentChat: null,
-	chats: [],
-	appTitle: 'React Chat'
-}
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = initialState;
+		this.state = props;
 		this.createUser = this.createUser.bind(this);
 		this.createResponse = this.createResponse.bind(this);
 		this.sendChat = this.sendChat.bind(this);

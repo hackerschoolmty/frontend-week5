@@ -9,12 +9,14 @@ class ChatInput extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const val = this.refs.textInput.value;
-    const chatMessage = {
-      userName: 'You',
-      message: val
+    if (val && val.length > 0) {
+      const chatMessage = {
+        userName: 'You',
+        message: val
+      }
+      this.props.onSubmit(chatMessage);
+      this.refs.textInput.value = null;
     }
-    this.props.onSubmit(chatMessage);
-    this.refs.textInput.value = null;
   }
 
   render() {
@@ -25,7 +27,7 @@ class ChatInput extends React.Component {
             <input type="text" ref="textInput" />
           </div>
           <div className="input-field col s2">
-            <a className="waves-effect waves-light btn">Enviar</a>
+            <button type="submit" className="waves-effect waves-light btn">Enviar</button>
           </div>
         </form>
       </div>
