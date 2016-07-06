@@ -1,8 +1,9 @@
 import React from 'react';
 import NavBar from './NavBar';
-import ChatTable from './ChatTable';
+import ChatTable from '../containers/ChatTable';
 import { generateResponse, generateNewUser } from '../utils/chatHelper';
-import SideChat from './SideChat';
+import SideChat from '../containers/SideChat';
+import Notification from '../containers/Notification';
 
 class App extends React.Component {
 	constructor(props) {
@@ -16,9 +17,7 @@ class App extends React.Component {
 
 	createUser() {
 		generateNewUser().then((user) => {
-			let newUserList = this.state.userList.slice();
-			newUserList.push(user);
-			this.setState({userList: newUserList});
+			this.props.addUser(user);
 		});
 	}
 
@@ -59,18 +58,11 @@ class App extends React.Component {
 		const { changeTitle, switchUser, sendChat, createResponse, createUser } = this;
 		return (
 			<div className="container">
+				<Notification />
 				<NavBar {...this.state} createResponse={createResponse} createUser={createUser} />
 				<div className="row">
-		      <SideChat {...this.state} switchUser={switchUser} />
-					{
-						this.state.chats[this.state.currentChat] ?
-							<ChatTable
-								{...this.state.chats[this.state.currentChat]}
-							 	sendChat={sendChat}
-							/>
-						:
-							null
-					}
+		      <SideChat />
+					<ChatTable />
 		    </div>
 			</div>
 		);

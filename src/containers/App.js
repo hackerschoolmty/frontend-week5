@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    userList: state.userList,
-    currentChat: state.currentChat,
-    chats: state.chats,
-    appTitle: state.appTitle
+    userList: state.get('userList').toArray(),
+    currentChat: state.get('currentChat'),
+    chats: state.get('chats'),
+    appTitle: state.get('appTitle')
   };
 }
 

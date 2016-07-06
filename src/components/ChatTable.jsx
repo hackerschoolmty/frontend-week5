@@ -3,6 +3,9 @@ import ChatInput from './ChatInput';
 
 class ChatTable extends React.Component {
 	render() {
+		if (this.props.messageList <= 0) {
+			return null;
+		}
 		return (
       <div className="col s12 m8 l9">
         <div className="card hoverable indigo darken-4">

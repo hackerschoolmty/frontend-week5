@@ -1,6 +1,29 @@
 # frontend-week5
 Contenido para la quinta semana del curso de Frontend
 
+Chat
+userList: [], addUser(newUsername)
+currentChat: null, selectChat(selecteUsername)
+chats: [], addMessage(newMessage)
+appTitle: 'React Chat'
+
+chats : {
+  userName: {
+    userName,
+    messageList
+  }
+}
+
+addUser(newUsername)
+
+addMessage(newMessage)
+
+selectChat(selecteUsername)
+
+
+
+
+
 # cheatSheet React
 ## Nuevo Componente
 ```
