@@ -1,13 +1,7 @@
-export function addUser(userName) {
-  return {
-    type: 'ADD_USER',
-    user: userName
-  };
-}
+import chatActions from './chatActions';
+import userListActions from './userListActions';
 
-export function addMessage(msg) {
-  return {
-    type: 'ADD_MESSAGE',
-    message: msg
-  };
-}
+export default {
+  chatActions,
+  userListActions
+};
