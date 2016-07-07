@@ -13,12 +13,18 @@ class Notification extends React.Component {
       display: isOpen ? 'block' : 'none'
     };
     return (
-      <div style={styles}>
-        <div>{UserName}</div>
-        <div>{Message}</div>
-        <div>
-          <button onClick={closeNotification}></button>
-          <button onClick={replyNotification.bind(this, UserName)}></button>
+      <div className="row" style={styles}>
+        <div className="col s12 m6">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">{UserName}</span>
+              <p>{Message}</p>
+            </div>
+            <div className="card-action">
+              <a onClick={closeNotification}>Close Notification</a>
+              <a onClick={replyNotification.bind(this, UserName)}>Reply Notification</a>
+            </div>
+          </div>
         </div>
       </div>
     )
