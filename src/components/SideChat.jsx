@@ -11,7 +11,6 @@ class SideChat extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
       <div className="col s12 m4 l3">
         <div className="card orange darken-4">

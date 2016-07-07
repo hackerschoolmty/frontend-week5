@@ -17,6 +17,14 @@ export default (state = Map(), action) => {
     case 'REPLY_NOTIFICATION':
       return state.remove('newMessage')
                   .update('currentChat', () => action.userName);
+    case 'ADD_USER': {
+      console.log(action);
+      console.log('oldState', state.toJS());
+      const userList = state.get('userList').push(action.user);
+      const newState = state.set('userList', userList);
+      console.log('newState', newState.toJS());
+      return newState;
+    }
     case 'ADD_MESSAGE': {
       console.log(action);
       console.log('oldState', state.toJS());
