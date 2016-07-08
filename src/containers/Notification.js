@@ -1,25 +1,12 @@
 import Notification from '../components/Notification';
+import actionCreator from '../actions/notificationActions';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    isOpen: state.get('newMessage') || false,
-    UserName: state.getIn('notification', 'UserName'),
-    Message: state.getIn('notification', 'Message')
-  }
-}
-
-const actionCreator = {
-  closeNotification: () => {
-    return {
-      type: 'CLOSE_NOTIFICATION'
-    }
-  },
-  replyNotification: (userName) => {
-    return {
-      type: 'REPLY_NOTIFICATION',
-      userName: userName
-    }
+    isOpen: state.getIn(['notification', 'newMessage']) || false,
+    UserName: state.getIn(['notification', 'UserName']),
+    Message: state.getIn(['notification', 'Message'])
   }
 }
 

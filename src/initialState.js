@@ -4,10 +4,10 @@ const initialState = fromJS({
 	userList: ['username'],
 	currentChat: 'default',
 	notification: {
+		newMessage: true,
 		UserName: 'username',
 		Message: 'message'
 	},
-	newMessage: true,
 	chats: {
 		userName: 'username',
 		messageList: [
@@ -16,8 +16,7 @@ const initialState = fromJS({
 				message: 'test'
 			}
 		]
-	},
-	appTitle: 'React Chat'
+	}
 });
 
 export default initialState;
