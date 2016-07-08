@@ -5,10 +5,15 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import App from './containers/App';
 import initialState from './initialState';
+import gaMiddleware from './middleware/googleAnalytics';
+import logger from './middleware/logger';
+import filter from './middleware/filter';
+import thunk from 'redux-thunk';
 
-// const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
-// const store = createStoreWithMiddleware(reducers, initialState);
-const store = createStore(reducers, initialState);
+const createStoreWithMiddleware = applyMiddleware(
+  thunk, filter, gaMiddleware, logger
+)(createStore);
+const store = createStoreWithMiddleware(reducers, initialState);
 
 render(
   <Provider store={store}>

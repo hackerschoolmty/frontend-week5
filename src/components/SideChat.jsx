@@ -7,7 +7,7 @@ class SideChat extends React.Component {
 	}
 
 	addUser() {
-		this.props.addUser('newUser');
+		this.props.addUser();
 	}
 
 	render() {
