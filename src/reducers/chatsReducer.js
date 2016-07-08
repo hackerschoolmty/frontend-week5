@@ -1,13 +1,19 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 export default (state = Map(), action) => {
   switch (action.type) {
+    case 'SELECT_CHAT': {
+      return state.update('currentChat', value => action.user);
+    }
+    case 'ADD_USER': {
+      return state.set(action.user, fromJS(
+        {userName: action.user, messageList: []}
+      ));
+    }
     case 'ADD_MESSAGE': {
-      console.log(action);
-      console.log('oldState', state.toJS());
-      const userList = state.getIn([action.msg.userName, 'messageList']).push(action.msg);
-      const newState = state.setIn([action.msg.userName, 'messageList'], userList);
-      console.log('newState', newState.toJS());
+      const currentChat = state.get('currentChat');
+      const userList = state.getIn([currentChat, 'messageList']).push(action.msg);
+      const newState = state.setIn([currentChat, 'messageList'], userList);
       return newState;
     }
     default:

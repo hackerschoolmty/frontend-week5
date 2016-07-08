@@ -1,21 +1,14 @@
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-	userList: ['username'],
-	currentChat: 'default',
+	userList: [],
 	notification: {
-		newMessage: true,
+		newMessage: false,
 		UserName: 'username',
 		Message: 'message'
 	},
 	chats: {
-		userName: 'username',
-		messageList: [
-			{
-				userName: 'username',
-				message: 'test'
-			}
-		]
+		currentChat: null
 	}
 });
 

@@ -1,26 +1,17 @@
 import React from 'react';
 
 class SideChat extends React.Component {
-	constructor(props) {
-		super(props);
-		this.addUser = this.addUser.bind(this);
-	}
-
-	addUser() {
-		this.props.addUser();
-	}
-
 	render() {
 		return (
       <div className="col s12 m4 l3">
         <div className="card orange darken-4">
           <div className="card-content white-text left-align">
-            <span className="card-title" onClick={this.addUser} >Chats</span>
+            <span className="card-title">Chats</span>
           </div>
           <div className="collection">
             {
               this.props.userList.map((user, index) => {
-                return <a key={index} className="collection-item">{user}</a>
+                return <a key={index} className="collection-item" onClick={this.props.selectChat.bind(this, user)}>{user}</a>
               })
             }
           </div>
@@ -32,7 +23,7 @@ class SideChat extends React.Component {
 
 SideChat.propTypes = {
   userList: React.PropTypes.array.isRequired,
-	addUser: React.PropTypes.func.isRequired
+	selectChat: React.PropTypes.func.isRequired
 }
 
 export default SideChat;

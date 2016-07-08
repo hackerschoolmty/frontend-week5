@@ -3,7 +3,7 @@ import ChatInput from './ChatInput';
 
 class ChatTable extends React.Component {
 	render() {
-		if (this.props.messageList <= 0) {
+		if (!this.props.userName) {
 			return null;
 		}
 		return (
@@ -39,7 +39,7 @@ class ChatTable extends React.Component {
 }
 
 ChatTable.propTypes = {
-  userName: React.PropTypes.string.isRequired,
+  userName: React.PropTypes.string,
   messageList: React.PropTypes.array.isRequired,
 	sendChat: React.PropTypes.func.isRequired
 }
