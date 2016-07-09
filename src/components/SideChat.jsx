@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class SideChat extends React.Component {
 	render() {
@@ -11,7 +12,14 @@ class SideChat extends React.Component {
           <div className="collection">
             {
               this.props.userList.map((user, index) => {
-                return <a key={index} className="collection-item" onClick={this.props.selectChat.bind(this, user)}>{user}</a>
+                return (
+                  <Link
+                    to={`/chat/${user}`}
+                    key={index}
+                    className="collection-item"
+                    >{user}
+                  </Link>
+                )
               })
             }
           </div>

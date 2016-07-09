@@ -2,10 +2,20 @@ import React from 'react';
 import ChatInput from './ChatInput';
 
 class ChatTable extends React.Component {
-	render() {
-		if (!this.props.userName) {
-			return null;
+
+	componentWillMount(){
+		if(!this.props.userList.includes(this.props.userName)) {
+			this.context.router.replace('/');
 		}
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(!nextProps.userList.includes(nextProps.userName)) {
+			this.context.router.replace('/');
+		}
+	}
+
+	render() {
 		return (
       <div className="col s12 m8 l9">
         <div className="card hoverable indigo darken-4">
@@ -42,6 +52,10 @@ ChatTable.propTypes = {
   userName: React.PropTypes.string,
   messageList: React.PropTypes.array.isRequired,
 	sendChat: React.PropTypes.func.isRequired
+}
+
+ChatTable.contextTypes = {
+	router: React.PropTypes.object.isRequired
 }
 
 export default ChatTable;
