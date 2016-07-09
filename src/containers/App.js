@@ -12,8 +12,8 @@ class App extends React.Component {
 				<Notification />
 				<NavBar />
 				<div className="row">
-		      <SideChat />
-					<ChatTable />
+					{this.props.sideNav}
+		      {this.props.main}
 		    </div>
 			</div>
 		);
